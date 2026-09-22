@@ -1,1903 +1,2054 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>SMA Negeri 1 Kolang | Sekolah Berkarakter dan Berprestasi</title>
-
-  <meta name="description" content="Website resmi SMA Negeri 1 Kolang. Informasi profil, program, kegiatan, fasilitas, dan galeri sekolah.">
-  <meta name="theme-color" content="#0b5d3b">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-      color: #263238;
-      background: #f5f8f6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.97);
-      border-bottom: 1px solid #e4e8e5;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-    }
-
-    .navbar {
-      max-width: 1200px;
-      margin: auto;
-      padding: 12px 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand img {
-      width: 58px;
-      height: 58px;
-      object-fit: contain;
-    }
-
-    .brand-text h1 {
-      font-size: 18px;
-      color: #0b5d3b;
-      line-height: 1.2;
-    }
-
-    .brand-text span {
-      font-size: 12px;
-      color: #777;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 5px;
-      align-items: center;
-    }
-
-    nav a {
-      display: block;
-      padding: 10px 12px;
-      font-size: 14px;
-      font-weight: bold;
-      color: #37474f;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background: #e9f5ef;
-      color: #0b5d3b;
-    }
-
-    .menu-toggle {
-      display: none;
-      border: none;
-      background: #0b5d3b;
-      color: white;
-      font-size: 24px;
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 620px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(
-          rgba(0, 55, 35, 0.68),
-          rgba(0, 55, 35, 0.68)
-        ),
-        url("foto-sekolah.jpg") center/cover no-repeat;
-    }
-
-    .hero-content {
-      max-width: 1200px;
-      width: 100%;
-      margin: auto;
-      padding: 80px 25px;
-      color: white;
-    }
-
-    .hero-content .badge {
-      display: inline-block;
-      padding: 7px 15px;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.4);
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
-
-    .hero h2 {
-      font-size: clamp(38px, 6vw, 72px);
-      line-height: 1.05;
-      max-width: 850px;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: white;
-      color: #0b5d3b;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.8);
-      color: white;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .btn-outline:hover {
-      background: white;
-      color: #0b5d3b;
-    }
-
-    /* =========================
-       GENERAL
-    ========================= */
-
-    section {
-      padding: 85px 20px;
-    }
-
-    .container {
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-header .label {
-      color: #0b5d3b;
-      font-size: 13px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .section-header h2 {
-      font-size: 36px;
-      color: #173b2c;
-      margin: 8px 0;
-    }
-
-    .section-header p {
-      color: #6d7772;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    /* =========================
-       PROFIL
-    ========================= */
-
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 45px;
-      align-items: center;
-    }
-
-    .profile-image {
-      overflow: hidden;
-      border-radius: 22px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    }
-
-    .profile-image img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      transition: 0.5s;
-    }
-
-    .profile-image:hover img {
-      transform: scale(1.04);
-    }
-
-    .profile-text h3 {
-      color: #0b5d3b;
-      font-size: 28px;
-      margin-bottom: 15px;
-    }
-
-    .profile-text p {
-      margin-bottom: 15px;
-      color: #58635e;
-    }
-
-    /* =========================
-       IDENTITAS
-    ========================= */
-
-    .identity {
-      background: white;
-    }
-
-    .identity-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .identity-card {
-      padding: 25px 18px;
-      text-align: center;
-      background: #f5faf7;
-      border: 1px solid #e0eee6;
-      border-radius: 15px;
-    }
-
-    .identity-card .icon {
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
-
-    .identity-card h3 {
-      color: #0b5d3b;
-      font-size: 15px;
-    }
-
-    .identity-card p {
-      color: #68746e;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    /* =========================
-       SAMBUTAN KEPALA SEKOLAH
-    ========================= */
-
-    .principal {
-      background: #edf6f1;
-    }
-
-    .principal-grid {
-      display: grid;
-      grid-template-columns: 330px 1fr;
-      gap: 45px;
-      align-items: center;
-    }
-
-    .principal-photo {
-      background: white;
-      padding: 10px;
-      border-radius: 22px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    }
-
-    .principal-photo img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 16px;
-    }
-
-    .principal-text h2 {
-      color: #0b5d3b;
-      margin-bottom: 18px;
-      font-size: 32px;
-    }
-
-    .principal-text p {
-      color: #52605a;
-      margin-bottom: 15px;
-    }
-
-    .principal-name {
-      font-weight: bold;
-      color: #173b2c;
-      font-size: 18px;
-      margin-top: 20px;
-    }
-
-    /* =========================
-       VISI MISI
-    ========================= */
-
-    .vision {
-      background: white;
-    }
-
-    .vision-box {
-      background: linear-gradient(135deg, #0b5d3b, #168253);
-      color: white;
-      padding: 45px;
-      border-radius: 25px;
-      text-align: center;
-      margin-bottom: 35px;
-      box-shadow: 0 15px 35px rgba(11,93,59,0.2);
-    }
-
-    .vision-box h3 {
-      font-size: 28px;
-      margin-bottom: 15px;
-    }
-
-    .vision-box p {
-      font-size: 20px;
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .mission-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .mission-card {
-      padding: 25px;
-      background: #f6faf8;
-      border-radius: 15px;
-      border-left: 5px solid #0b5d3b;
-    }
-
-    .mission-card strong {
-      color: #0b5d3b;
-      margin-right: 8px;
-    }
-
-    /* =========================
-       PROGRAM
-    ========================= */
-
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .program-card {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 7px 25px rgba(0,0,0,0.07);
-      border: 1px solid #e8eeeb;
-      transition: 0.3s;
-    }
-
-    .program-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-    }
-
-    .program-icon {
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e8f5ee;
-      border-radius: 14px;
-      font-size: 27px;
-      margin-bottom: 18px;
-    }
-
-    .program-card h3 {
-      color: #173b2c;
-      margin-bottom: 10px;
-    }
-
-    .program-card p {
-      color: #69746f;
-      font-size: 14px;
-    }
-
-    /* =========================
-       KEGIATAN UNGGULAN
-    ========================= */
-
-    .activities {
-      background: #edf6f1;
-    }
-
-    .activity-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .activity-card {
-      background: white;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    }
-
-    .activity-card img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-    }
-
-    .activity-info {
-      padding: 20px;
-    }
-
-    .activity-info h3 {
-      color: #0b5d3b;
-      margin-bottom: 7px;
-    }
-
-    .activity-info p {
-      font-size: 14px;
-      color: #68736e;
-    }
-
-    /* =========================
-       FASILITAS
-    ========================= */
-
-    .facility-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .facility {
-      background: white;
-      padding: 25px;
-      text-align: center;
-      border-radius: 16px;
-      border: 1px solid #e5ebe7;
-    }
-
-    .facility-icon {
-      font-size: 35px;
-      margin-bottom: 10px;
-    }
-
-    .facility h3 {
-      color: #0b5d3b;
-      margin-bottom: 5px;
-    }
-
-    .facility p {
-      color: #707a75;
-      font-size: 14px;
-    }
-
-    /* =========================
-       GALERI
-    ========================= */
-
-    .gallery {
-      background: white;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      cursor: pointer;
-      background: #ddd;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      transition: 0.5s;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.08);
-    }
-
-    .gallery-caption {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 25px 15px 14px;
-      color: white;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      font-weight: bold;
-    }
-
-    /* =========================
-       KONTAK
-    ========================= */
-
-    .contact {
-      background: #173b2c;
-      color: white;
-    }
-
-    .contact .section-header h2,
-    .contact .section-header p,
-    .contact .section-header .label {
-      color: white;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .contact-card {
-      padding: 30px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 16px;
-      text-align: center;
-    }
-
-    .contact-card .icon {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-
-    .contact-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .contact-card p {
-      color: rgba(255,255,255,0.75);
-      font-size: 14px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: #0b2419;
-      color: rgba(255,255,255,0.75);
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 14px;
-    }
-
-    /* =========================
-       BACK TO TOP
-    ========================= */
-
-    #backTop {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 45px;
-      height: 45px;
-      border: none;
-      border-radius: 50%;
-      background: #0b5d3b;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      display: none;
-      z-index: 999;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    }
-
-    /* =========================
-       MODAL GALERI
-    ========================= */
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 3000;
-      inset: 0;
-      background: rgba(0,0,0,0.88);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal img {
-      max-width: 92%;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: 10px;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 40px;
-      cursor: pointer;
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 950px) {
-
-      .menu-toggle {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 83px;
-        background: white;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      }
-
-      nav.active {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 15px;
-      }
-
-      nav a {
-        padding: 13px;
-      }
-
-      .profile-grid,
-      .principal-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .program-grid,
-      .activity-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .identity-grid,
-      .facility-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      .navbar {
-        padding: 10px 15px;
-      }
-
-      .brand img {
-        width: 48px;
-        height: 48px;
-      }
-
-      .brand-text h1 {
-        font-size: 14px;
-      }
-
-      .brand-text span {
-        font-size: 10px;
-      }
-
-      .hero {
-        min-height: 580px;
-      }
-
-      .hero-content {
-        padding: 60px 20px;
-      }
-
-      .hero h2 {
-        font-size: 40px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      section {
-        padding: 65px 15px;
-      }
-
-      .section-header h2 {
-        font-size: 29px;
-      }
-
-      .identity-grid,
-      .program-grid,
-      .activity-grid,
-      .facility-grid,
-      .gallery-grid,
-      .contact-grid,
-      .mission-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-image img {
-        height: 300px;
-      }
-
-      .principal-photo img {
-        height: 350px;
-      }
-
-      .vision-box {
-        padding: 30px 20px;
-      }
-
-      .vision-box p {
-        font-size: 17px;
-      }
-
-      .gallery-item img {
-        height: 240px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SMA Negeri 1 Kolang | Sekolah Unggul, Berkarakter dan Inovatif</title>
+
+<meta name="description" content="Website resmi SMA Negeri 1 Kolang, Kabupaten Tapanuli Tengah, Provinsi Sumatera Utara.">
+<meta name="keywords" content="SMA Negeri 1 Kolang, SMAN 1 Kolang, sekolah Kolang, Tapanuli Tengah">
+<meta name="author" content="SMA Negeri 1 Kolang">
+
+<style>
+:root{
+    --primary:#0b5d3b;
+    --primary-dark:#06442b;
+    --secondary:#d9a441;
+    --light:#f5f8f6;
+    --white:#ffffff;
+    --dark:#17231d;
+    --gray:#66736c;
+    --border:#e2e8e4;
+    --shadow:0 12px 35px rgba(0,0,0,.08);
+    --radius:18px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--dark);
+    background:#fff;
+    line-height:1.7;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.brand img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+}
+
+.brand-text h1{
+    font-size:17px;
+    color:var(--primary);
+    line-height:1.2;
+}
+
+.brand-text p{
+    font-size:11px;
+    color:var(--gray);
+    margin-top:3px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:4px;
+}
+
+.nav-links a{
+    padding:10px 11px;
+    font-size:13px;
+    font-weight:600;
+    color:#34443c;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--primary);
+    background:#eef5f1;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:var(--primary);
+    color:white;
+    font-size:24px;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:680px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+      linear-gradient(90deg,rgba(3,38,24,.92),rgba(3,38,24,.65),rgba(3,38,24,.18)),
+      url("foto-sekolah.jpg") center/cover no-repeat;
+}
+
+.hero-content{
+    color:white;
+    max-width:760px;
+    padding:90px 0;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 15px;
+    border:1px solid rgba(255,255,255,.35);
+    background:rgba(255,255,255,.12);
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+.hero h2{
+    font-size:clamp(38px,6vw,70px);
+    line-height:1.05;
+    margin-bottom:22px;
+    letter-spacing:-2px;
+}
+
+.hero h2 span{
+    color:#f2c35e;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:680px;
+    color:#eef6f1;
+    margin-bottom:32px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 21px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--secondary);
+    color:#17231d;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.6);
+    color:white;
+    background:rgba(255,255,255,.08);
+}
+
+.btn-outline:hover{
+    background:white;
+    color:var(--primary);
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:90px 0;
+}
+
+.section-head{
+    max-width:720px;
+    margin:0 auto 45px;
+    text-align:center;
+}
+
+.section-label{
+    display:inline-block;
+    color:var(--primary);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.section-head h2{
+    font-size:clamp(30px,4vw,44px);
+    line-height:1.2;
+    margin-bottom:14px;
+}
+
+.section-head p{
+    color:var(--gray);
+}
+
+/* ================= STAT ================= */
+
+.stats{
+    margin-top:-55px;
+    position:relative;
+    z-index:5;
+}
+
+.stats-grid{
+    background:white;
+    border-radius:22px;
+    box-shadow:var(--shadow);
+    padding:28px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.stat{
+    text-align:center;
+    padding:10px;
+    border-right:1px solid var(--border);
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat strong{
+    display:block;
+    color:var(--primary);
+    font-size:28px;
+}
+
+.stat span{
+    color:var(--gray);
+    font-size:13px;
+}
+
+/* ================= PROFILE ================= */
+
+.profile{
+    background:var(--light);
+}
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.profile-image{
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.profile-image img{
+    width:100%;
+    height:470px;
+    object-fit:cover;
+}
+
+.profile-content h2{
+    font-size:40px;
+    margin-bottom:18px;
+}
+
+.profile-content p{
+    color:var(--gray);
+    margin-bottom:18px;
+}
+
+.info-list{
+    display:grid;
+    gap:12px;
+    margin-top:25px;
+}
+
+.info-item{
+    background:white;
+    padding:14px 17px;
+    border-radius:12px;
+    border:1px solid var(--border);
+}
+
+.info-item strong{
+    display:block;
+    font-size:12px;
+    color:var(--primary);
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.info-item span{
+    font-size:14px;
+}
+
+/* ================= PRINCIPAL ================= */
+
+.principal-grid{
+    display:grid;
+    grid-template-columns:390px 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.principal-photo{
+    background:var(--light);
+    border-radius:25px;
+    padding:25px;
+}
+
+.principal-photo img{
+    width:100%;
+    height:460px;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:18px;
+}
+
+.principal-content blockquote{
+    border-left:5px solid var(--secondary);
+    padding-left:20px;
+    font-size:18px;
+    color:#405049;
+    margin:25px 0;
+}
+
+.principal-name{
+    font-weight:800;
+    color:var(--primary);
+}
+
+/* ================= VISI MISI ================= */
+
+.vision{
+    background:var(--primary);
+    color:white;
+}
+
+.vision .section-label{
+    color:#f1c25a;
+}
+
+.vision .section-head p{
+    color:#dbe9e2;
+}
+
+.vision-box{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.14);
+    padding:35px;
+    border-radius:22px;
+    margin-bottom:35px;
+}
+
+.vision-box h3{
+    color:#f1c25a;
+    margin-bottom:12px;
+}
+
+.vision-box p{
+    font-size:21px;
+}
+
+.mission-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.mission{
+    background:rgba(255,255,255,.07);
+    border-radius:16px;
+    padding:23px;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.mission-number{
+    color:#f1c25a;
+    font-size:14px;
+    font-weight:800;
+}
+
+.mission h4{
+    margin:5px 0 7px;
+}
+
+.mission p{
+    color:#d7e4de;
+    font-size:14px;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:28px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+}
+
+.card-icon{
+    width:54px;
+    height:54px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#edf6f1;
+    border-radius:15px;
+    font-size:25px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--gray);
+    font-size:14px;
+}
+
+/* ================= PROGRAM ================= */
+
+.program{
+    background:var(--light);
+}
+
+/* ================= ACTIVITIES ================= */
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.activity{
+    overflow:hidden;
+    border-radius:18px;
+    background:white;
+    border:1px solid var(--border);
+    transition:.3s;
+}
+
+.activity:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.activity img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.activity-body{
+    padding:20px;
+}
+
+.activity-body h3{
+    margin-bottom:6px;
+    font-size:18px;
+}
+
+.activity-body p{
+    color:var(--gray);
+    font-size:13px;
+}
+
+/* ================= FACILITY ================= */
+
+.facility{
+    background:var(--light);
+}
+
+/* ================= ACHIEVEMENT ================= */
+
+.achievement-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.achievement{
+    padding:30px;
+    border-radius:18px;
+    border:1px solid var(--border);
+    background:white;
+    text-align:center;
+}
+
+.achievement-icon{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.achievement h3{
+    color:var(--primary);
+    margin-bottom:7px;
+}
+
+.achievement p{
+    color:var(--gray);
+    font-size:14px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+    background:#111a15;
+    color:white;
+}
+
+.gallery .section-head p{
+    color:#b8c7bf;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.gallery-item{
+    position:relative;
+    height:230px;
+    overflow:hidden;
+    border-radius:14px;
+    cursor:pointer;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.gallery-caption{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:35px 15px 14px;
+    background:linear-gradient(transparent,rgba(0,0,0,.8));
+    font-size:13px;
+}
+
+/* ================= NEWS ================= */
+
+.news{
+    background:var(--light);
+}
+
+.news-card{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    border:1px solid var(--border);
+}
+
+.news-date{
+    color:var(--primary);
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.news-card h3{
+    margin-bottom:8px;
+}
+
+.news-card p{
+    color:var(--gray);
+    font-size:14px;
+}
+
+/* ================= PPDB ================= */
+
+.ppdb{
+    background:
+      linear-gradient(100deg,rgba(6,68,43,.96),rgba(11,93,59,.88)),
+      url("foto-sekolah.jpg") center/cover;
+    color:white;
+}
+
+.ppdb-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.ppdb-box h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.ppdb-box p{
+    color:#dceae3;
+}
+
+/* ================= DOWNLOAD ================= */
+
+.download-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.download-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:20px;
+    background:var(--light);
+    border:1px solid var(--border);
+    border-radius:15px;
+}
+
+.download-icon{
+    font-size:25px;
+}
+
+.download-item strong{
+    display:block;
+}
+
+.download-item span{
+    color:var(--gray);
+    font-size:12px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    background:var(--light);
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.contact-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+}
+
+.contact-item{
+    display:flex;
+    gap:16px;
+    padding:17px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.contact-item:last-child{
+    border-bottom:0;
+}
+
+.contact-icon{
+    font-size:23px;
+}
+
+.contact-item strong{
+    display:block;
+    margin-bottom:3px;
+}
+
+.contact-item span{
+    color:var(--gray);
+    font-size:14px;
+}
+
+.map-box{
+    min-height:400px;
+    border-radius:20px;
+    overflow:hidden;
+    background:#dfe8e2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+}
+
+.map-box a{
+    color:var(--primary);
+    font-weight:800;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#07150e;
+    color:white;
+    padding:45px 0 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:45px;
+    padding-bottom:35px;
+}
+
+.footer-brand{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.footer-brand img{
+    width:55px;
+}
+
+.footer p{
+    color:#aabbb2;
+    font-size:14px;
+}
+
+.footer h3{
+    margin-bottom:14px;
+}
+
+.footer-links{
+    display:grid;
+    gap:8px;
+}
+
+.footer-links a{
+    color:#aabbb2;
+    font-size:14px;
+}
+
+.footer-links a:hover{
+    color:white;
+}
+
+.copyright{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:18px;
+    text-align:center;
+    color:#82938a;
+    font-size:12px;
+}
+
+/* ================= BACK TO TOP ================= */
+
+#topBtn{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:45px;
+    height:45px;
+    border:0;
+    border-radius:50%;
+    background:var(--secondary);
+    color:#17231d;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    display:none;
+    z-index:1000;
+    box-shadow:var(--shadow);
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.88);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:2000;
+}
+
+.modal img{
+    max-width:95%;
+    max-height:90vh;
+    border-radius:12px;
+}
+
+.modal-close{
+    position:absolute;
+    top:20px;
+    right:25px;
+    color:white;
+    font-size:35px;
+    cursor:pointer;
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:.7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        left:4%;
+        right:4%;
+        top:84px;
+        background:white;
+        border-radius:15px;
+        box-shadow:var(--shadow);
+        padding:12px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links a{
+        padding:13px;
+    }
+
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat:nth-child(2){
+        border-right:0;
+    }
+
+    .profile-grid,
+    .principal-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .activity-grid,
+    .achievement-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .download-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .ppdb-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:65px 0;
+    }
+
+    .hero{
+        min-height:650px;
+    }
+
+    .hero h2{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .stats{
+        margin-top:-30px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+        padding:18px;
+    }
+
+    .stat{
+        border-right:0;
+    }
+
+    .profile-image img{
+        height:330px;
+    }
+
+    .principal-photo img{
+        height:380px;
+    }
+
+    .mission-grid,
+    .cards,
+    .activity-grid,
+    .achievement-grid,
+    .download-grid,
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-item{
+        height:260px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .brand-text h1{
+        font-size:14px;
+    }
+
+    .brand-text p{
+        font-size:9px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+<!-- ================= HEADER ================= -->
 
-  <header>
-    <div class="navbar">
+<header>
+<div class="container navbar">
 
-      <a href="#beranda" class="brand">
-
-        <img
-          src="logo-sman1-kolang.png"
-          alt="Logo SMA Negeri 1 Kolang"
-        >
-
+    <a href="#beranda" class="brand">
+        <img src="logo-sman1-kolang.png" alt="Logo SMA Negeri 1 Kolang">
         <div class="brand-text">
-          <h1>SMA NEGERI 1 KOLANG</h1>
-          <span>Terdidik • Inovatif • Relegius</span>
+            <h1>SMA NEGERI 1 KOLANG</h1>
+            <p>Terdidik • Inovatif • Religius</p>
         </div>
+    </a>
 
-      </a>
+    <button class="menu-btn" id="menuBtn">☰</button>
 
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Buka menu"
-      >
-        ☰
-      </button>
+    <nav class="nav-links" id="navLinks">
+        <a href="#beranda">Beranda</a>
+        <a href="#profil">Profil</a>
+        <a href="#kepala-sekolah">Kepala Sekolah</a>
+        <a href="#visi">Visi & Misi</a>
+        <a href="#program">Program</a>
+        <a href="#kegiatan">Kegiatan</a>
+        <a href="#fasilitas">Fasilitas</a>
+        <a href="#prestasi">Prestasi</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#kontak">Kontak</a>
+    </nav>
 
-      <nav id="navMenu">
-        <ul>
-          <li><a href="#beranda">Beranda</a></li>
-          <li><a href="#profil">Profil</a></li>
-          <li><a href="#visi">Visi & Misi</a></li>
-          <li><a href="#program">Program</a></li>
-          <li><a href="#kegiatan">Kegiatan</a></li>
-          <li><a href="#fasilitas">Fasilitas</a></li>
-          <li><a href="#galeri">Galeri</a></li>
-          <li><a href="#kontak">Kontak</a></li>
-        </ul>
-      </nav>
+</div>
+</header>
 
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="beranda">
+<div class="container">
+<div class="hero-content reveal">
+
+    <div class="badge">
+        🏫 Website Resmi SMA Negeri 1 Kolang
     </div>
-  </header>
 
+    <h2>
+        Membangun Generasi
+        <span>Berkarakter</span>
+        dan Berprestasi
+    </h2>
 
-  <!-- =========================
-       BERANDA
-  ========================== -->
+    <p>
+        Mewujudkan pendidikan yang bermakna, inovatif, berkarakter,
+        berbudaya, mandiri, serta siap menghadapi tantangan masa depan.
+    </p>
 
-  <section class="hero" id="beranda">
-
-    <div class="hero-content">
-
-      <span class="badge">
-        Website Sekolah
-      </span>
-
-      <h2>
-        SMA Negeri 1 Kolang
-      </h2>
-
-      <p>
-        Membangun generasi yang berkarakter,
-        berprestasi, berbudaya, mandiri,
-        dan siap menghadapi masa depan.
-      </p>
-
-      <div class="hero-buttons">
-
+    <div class="hero-buttons">
         <a href="#profil" class="btn btn-primary">
-          Jelajahi Profil
+            Jelajahi Profil →
         </a>
 
         <a href="#galeri" class="btn btn-outline">
-          Lihat Galeri
+            Lihat Galeri
         </a>
-
-      </div>
-
     </div>
 
-  </section>
+</div>
+</div>
+</section>
 
+<!-- ================= STATS ================= -->
 
-  <!-- =========================
-       PROFIL
-  ========================== -->
+<div class="stats">
+<div class="container">
+<div class="stats-grid">
 
-  <section id="profil">
+    <div class="stat">
+        <strong>10220520</strong>
+        <span>NPSN</span>
+    </div>
 
-    <div class="container">
+    <div class="stat">
+        <strong>Negeri</strong>
+        <span>Status Sekolah</span>
+    </div>
 
-      <div class="section-header">
+    <div class="stat">
+        <strong>SMA</strong>
+        <span>Jenjang Pendidikan</span>
+    </div>
 
-        <span class="label">
-          Profil Sekolah
-        </span>
+    <div class="stat">
+        <strong>2026</strong>
+        <span>Website Aktif</span>
+    </div>
 
-        <h2>
-          Mengenal SMA Negeri 1 Kolang
-        </h2>
+</div>
+</div>
+</div>
+
+<!-- ================= PROFIL ================= -->
+
+<section class="profile" id="profil">
+<div class="container">
+
+<div class="section-head reveal">
+    <span class="section-label">Profil Sekolah</span>
+    <h2>Mengenal SMA Negeri 1 Kolang</h2>
+    <p>
+        Mengenal lebih dekat identitas, lingkungan, dan arah pengembangan
+        SMA Negeri 1 Kolang.
+    </p>
+</div>
+
+<div class="profile-grid">
+
+    <div class="profile-image reveal">
+        <img src="foto-sekolah.jpg" alt="Foto SMA Negeri 1 Kolang">
+    </div>
+
+    <div class="profile-content reveal">
+
+        <h2>SMA Negeri 1 Kolang</h2>
 
         <p>
-          Informasi umum mengenai identitas dan
-          lingkungan pendidikan SMA Negeri 1 Kolang.
+            SMA Negeri 1 Kolang merupakan satuan pendidikan menengah atas
+            yang berkomitmen memberikan layanan pendidikan yang berkualitas
+            bagi peserta didik.
         </p>
 
-      </div>
-
-
-      <div class="profile-grid">
-
-        <div class="profile-image">
-
-          <img
-            src="foto-sekolah.jpg"
-            alt="Foto SMA Negeri 1 Kolang"
-          >
-
-        </div>
-
-
-        <div class="profile-text">
-
-          <h3>
-            SMA Negeri 1 Kolang
-          </h3>
-
-          <p>
-            SMA Negeri 1 Kolang merupakan satuan pendidikan
-            menengah atas yang berkomitmen memberikan layanan
-            pendidikan yang berkualitas bagi peserta didik.
-          </p>
-
-          <p>
-            Sekolah mengembangkan potensi akademik dan
-            nonakademik peserta didik melalui pembelajaran,
-            kegiatan ekstrakurikuler, penguatan karakter,
-            literasi, teknologi, serta berbagai kegiatan
+        <p>
+            Sekolah terus mengembangkan potensi akademik dan nonakademik
+            peserta didik melalui pembelajaran, kegiatan ekstrakurikuler,
+            penguatan karakter, literasi, teknologi, serta berbagai kegiatan
             pengembangan diri.
-          </p>
+        </p>
 
-          <p>
-            Website ini menjadi salah satu media informasi
-            sekolah untuk menyampaikan profil, program,
-            kegiatan, fasilitas, dan berbagai aktivitas
-            SMA Negeri 1 Kolang kepada masyarakat.
-          </p>
+        <div class="info-list">
+
+            <div class="info-item">
+                <strong>Nama Sekolah</strong>
+                <span>SMA Negeri 1 Kolang</span>
+            </div>
+
+            <div class="info-item">
+                <strong>NPSN</strong>
+                <span>10220520</span>
+            </div>
+
+            <div class="info-item">
+                <strong>Jenjang</strong>
+                <span>Sekolah Menengah Atas</span>
+            </div>
+
+            <div class="info-item">
+                <strong>Status</strong>
+                <span>Sekolah Negeri</span>
+            </div>
+
+            <div class="info-item">
+                <strong>Alamat</strong>
+                <span>Jl. Sibolga Barus Km. 21, Desa Unte Mungkur I</span>
+            </div>
 
         </div>
-
-      </div>
 
     </div>
 
-  </section>
+</div>
+</div>
+</section>
 
+<!-- ================= KEPALA SEKOLAH ================= -->
 
-  <!-- =========================
-       IDENTITAS
-  ========================== -->
+<section id="kepala-sekolah">
+<div class="container">
 
-  <section class="identity">
+<div class="section-head reveal">
+    <span class="section-label">Kepala Sekolah</span>
+    <h2>Sambutan Kepala Sekolah</h2>
+    <p>
+        Sambutan dan harapan untuk kemajuan SMA Negeri 1 Kolang.
+    </p>
+</div>
 
-    <div class="container">
+<div class="principal-grid">
 
-      <div class="identity-grid">
-
-        <div class="identity-card">
-          <div class="icon">🏫</div>
-          <h3>Nama Sekolah</h3>
-          <p>SMA Negeri 1 Kolang</p>
-        </div>
-
-        <div class="identity-card">
-          <div class="icon">📚</div>
-          <h3>Jenjang</h3>
-          <p>Sekolah Menengah Atas</p>
-        </div>
-
-        <div class="identity-card">
-          <div class="icon">🎓</div>
-          <h3>Status</h3>
-          <p>Sekolah Negeri</p>
-        </div>
-
-        <div class="identity-card">
-          <div class="icon">📍</div>
-          <h3>Wilayah</h3>
-          <p>Kolang, Sumatera Utara</p>
-        </div>
-
-      </div>
-
+    <div class="principal-photo reveal">
+        <img src="Kepala Sekolah.png" alt="Kepala SMA Negeri 1 Kolang">
     </div>
 
-  </section>
+    <div class="principal-content reveal">
 
+        <h2>Selamat Datang di Website SMA Negeri 1 Kolang</h2>
 
-  <!-- =========================
-       SAMBUTAN KEPALA SEKOLAH
-  ========================== -->
-
-  <section class="principal">
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <span class="label">
-          Kepala Sekolah
-        </span>
-
-        <h2>
-          Sekapur Sirih Kepala Sekolah
-        </h2>
-
-      </div>
-
-
-      <div class="principal-grid">
-
-        <div class="principal-photo">
-
-          <img
-            src="Kepala Sekolah.png"
-            alt="Kepala SMA Negeri 1 Kolang"
-          >
-
-        </div>
-
-
-        <div class="principal-text">
-
-          <h2>
-            Selamat Datang di SMA Negeri 1 Kolang
-          </h2>
-
-          <p>
+        <blockquote>
             Puji syukur kita panjatkan kepada Tuhan Yang Maha Esa.
             Selamat datang di website SMA Negeri 1 Kolang.
-          </p>
+        </blockquote>
 
-          <p>
-            Website sekolah ini diharapkan menjadi sarana informasi
-            dan komunikasi antara sekolah, peserta didik, orang tua,
-            alumni, serta masyarakat.
-          </p>
+        <p>
+            Website sekolah ini diharapkan menjadi sarana informasi dan
+            komunikasi antara sekolah, peserta didik, orang tua, alumni,
+            serta masyarakat.
+        </p>
 
-          <p>
-            Kami berkomitmen untuk terus meningkatkan kualitas
-            pembelajaran, penguatan karakter, prestasi peserta didik,
-            pemanfaatan teknologi, serta menciptakan lingkungan
-            sekolah yang aman, nyaman, bersih, dan menyenangkan.
-          </p>
+        <p>
+            Kami berkomitmen untuk terus meningkatkan kualitas pembelajaran,
+            penguatan karakter, prestasi peserta didik, pemanfaatan teknologi,
+            serta menciptakan lingkungan sekolah yang aman, nyaman, bersih,
+            dan menyenangkan.
+        </p>
 
-          <p>
-            Semoga website ini memberikan manfaat dan menjadi bagian
-            dari upaya kita bersama dalam memajukan pendidikan.
-          </p>
+        <p>
+            Semoga website ini memberikan manfaat dan menjadi bagian dari
+            upaya kita bersama dalam memajukan pendidikan.
+        </p>
 
-          <div class="principal-name">
-             Ronatha Situmeang, S.Pd.<br>
-  Kepala SMA Negeri 1 Kolang
-          </div>
+        <br>
 
+        <div class="principal-name">
+            Ronatha Situmeang, S.Pd.<br>
+            Kepala SMA Negeri 1 Kolang
         </div>
-
-      </div>
 
     </div>
 
-  </section>
+</div>
+</div>
+</section>
 
+<!-- ================= VISI MISI ================= -->
 
-  <!-- =========================
-       VISI MISI
-  ========================== -->
+<section class="vision" id="visi">
+<div class="container">
 
-  <section class="vision" id="visi">
+<div class="section-head reveal">
+    <span class="section-label">Arah Pengembangan Sekolah</span>
+    <h2>Visi dan Misi</h2>
+    <p>
+        Menjadi landasan dalam penyelenggaraan pendidikan dan pengembangan
+        karakter peserta didik.
+    </p>
+</div>
 
-    <div class="container">
+<div class="vision-box reveal">
+    <h3>VISI</h3>
 
-      <div class="section-header">
+    <p>
+        “Terwujudnya Lulusan yang Berkarakter, Bernalar Kritis, Kreatif,
+        Mandiri, Kolaboratif, Sehat, dan Peduli Lingkungan.”
+    </p>
+</div>
 
-        <span class="label">
-          Arah Pengembangan Sekolah
-        </span>
+<div class="mission-grid">
 
-        <h2>
-          Visi dan Misi
-        </h2>
-
-      </div>
-
-
-      <div class="vision-box">
-
-        <h3>
-          VISI
-        </h3>
-
+    <div class="mission reveal">
+        <span class="mission-number">01</span>
+        <h4>Keimanan dan Akhlak Mulia</h4>
         <p>
-          “ Terwujudnya Lulusan yang Berkarakter, Bernalar Kritis, Kreatif, Mandiri, Kolaboratif, Sehat, dan Peduli Lingkungan.”
+            Meningkatkan keimanan, ketakwaan, dan akhlak mulia dalam
+            kehidupan sehari-hari.
         </p>
-
-      </div>
-
-
-      <div class="mission-grid">
-
-        <div class="mission-card">
-          <strong>01.</strong>
-          Meningkatkan keimanan, ketakwaan, dan akhlak mulia
-Menumbuhkan sikap beriman dan bertakwa kepada Tuhan Yang Maha Esa serta membangun perilaku yang mencerminkan akhlak mulia dalam kehidupan sehari-hari.
-
-        </div>
-
-        <div class="mission-card">
-          <strong>02.</strong>
-          Meningkatkan kemampuan literasi dan numerasi
-Mengembangkan kemampuan membaca, memahami, mengolah informasi, bernalar, serta menerapkan konsep numerasi dalam pemecahan masalah kehidupan sehari-hari.
-
-        </div>
-
-        <div class="mission-card">
-          <strong>03.</strong>
-          Mewujudkan pembelajaran yang bermakna dan berkualitas
-Menyelenggarakan pembelajaran yang aktif, kreatif, menyenangkan, berpusat pada peserta didik, berdiferensiasi, dan sesuai dengan kebutuhan serta karakteristik peserta didik.
-
-        </div>
-
-        <div class="mission-card">
-          <strong>04.</strong>
-          Mengembangkan kemampuan bernalar kritis dan kreativitas
-Mendorong peserta didik untuk mampu berpikir kritis, memecahkan masalah, menghasilkan gagasan, berinovasi, dan menghasilkan karya yang bermanfaat bagi diri sendiri, masyarakat, dan lingkungan.
-
-        </div>
-
-        <div class="mission-card">
-          <strong>05.</strong>
-          Menumbuhkan kemandirian dan budaya belajar sepanjang hayat
-Membentuk peserta didik yang bertanggung jawab, percaya diri, disiplin, mampu mengelola proses belajarnya, dan memiliki motivasi untuk terus mengembangkan potensi diri
-
-        </div>
-
-        <div class="mission-card">
-          <strong>06.</strong>
-          Mengembangkan budaya kolaborasi dan gotong royong
-Membangun kemampuan peserta didik untuk bekerja sama, berkomunikasi, menghargai pendapat, dan berkontribusi secara positif dalam kehidupan sekolah maupun masyarakat
-
-        </div>
-	<div class="mission-card">
-         <strong>07.</strong>
-Mewujudkan sekolah yang sehat, aman, nyaman, dan inklusif
-Menciptakan lingkungan sekolah yang sehat, aman, bebas dari perundungan dan kekerasan, serta memberikan rasa nyaman bagi seluruh warga sekolah.
-
-
-      </div>
-<div class="mission-card">
-         <strong>08.</strong>
-. Menumbuhkan kepedulian dan budaya lingkungan
-Membudayakan perilaku menjaga kebersihan, kesehatan, kelestarian, dan keberlanjutan lingkungan melalui kegiatan pembelajaran, pembiasaan, proyek, dan partisipasi seluruh warga sekolah
-
     </div>
-<div class="mission-card">
-         <strong>09.</strong>
-Mengembangkan sikap menghargai keberagaman
-Membangun budaya sekolah yang menghargai perbedaan agama, budaya, suku, kondisi sosial, serta karakteristik setiap individu dalam semangat persatuan dan kebinekaan.
 
- </div>
-<div class="mission-card">
-         <strong>10.</strong>
-Meningkatkan prestasi dan potensi peserta didik
-Memberikan ruang bagi peserta didik untuk mengembangkan minat, bakat, kreativitas, dan prestasi akademik maupun nonakademik secara optimal.
-
-  </section>
-
-
-  <!-- =========================
-       PROGRAM SEKOLAH
-  ========================== -->
-
-  <section id="program">
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <span class="label">
-          Program Sekolah
-        </span>
-
-        <h2>
-          Program Unggulan
-        </h2>
-
+    <div class="mission reveal">
+        <span class="mission-number">02</span>
+        <h4>Literasi dan Numerasi</h4>
         <p>
-          Berbagai program untuk mendukung perkembangan
-          akademik, karakter, kreativitas, dan keterampilan peserta didik.
+            Mengembangkan kemampuan membaca, memahami informasi,
+            bernalar, dan menerapkan konsep numerasi.
         </p>
+    </div>
 
-      </div>
+    <div class="mission reveal">
+        <span class="mission-number">03</span>
+        <h4>Pembelajaran Bermakna</h4>
+        <p>
+            Menyelenggarakan pembelajaran aktif, kreatif, menyenangkan,
+            berpusat pada peserta didik dan sesuai kebutuhan belajar.
+        </p>
+    </div>
 
+    <div class="mission reveal">
+        <span class="mission-number">04</span>
+        <h4>Nalar Kritis dan Kreativitas</h4>
+        <p>
+            Mendorong peserta didik berpikir kritis, memecahkan masalah,
+            berinovasi, dan menghasilkan karya.
+        </p>
+    </div>
 
-      <div class="program-grid">
+    <div class="mission reveal">
+        <span class="mission-number">05</span>
+        <h4>Kemandirian</h4>
+        <p>
+            Membentuk peserta didik yang bertanggung jawab, percaya diri,
+            disiplin, dan memiliki motivasi belajar sepanjang hayat.
+        </p>
+    </div>
 
-        <div class="program-card">
-          <div class="program-icon">📖</div>
-          <h3>Gerakan Literasi</h3>
-          <p>
-            Penguatan budaya membaca, menulis, dan kemampuan
-            memahami informasi untuk meningkatkan kualitas belajar.
-          </p>
-        </div>
+    <div class="mission reveal">
+        <span class="mission-number">06</span>
+        <h4>Kolaborasi dan Gotong Royong</h4>
+        <p>
+            Membangun kemampuan bekerja sama, berkomunikasi, dan
+            berkontribusi positif.
+        </p>
+    </div>
 
-        <div class="program-card">
-          <div class="program-icon">💻</div>
-          <h3>Koding & Kecerdasan Artifisial</h3>
-          <p>
-            Pengenalan teknologi, pemrograman, dan kecerdasan
-            artifisial sebagai bagian dari kesiapan menghadapi masa depan.
-          </p>
-        </div>
+    <div class="mission reveal">
+        <span class="mission-number">07</span>
+        <h4>Sekolah Aman dan Inklusif</h4>
+        <p>
+            Mewujudkan lingkungan sekolah yang sehat, aman, nyaman,
+            bebas dari perundungan dan kekerasan.
+        </p>
+    </div>
 
-        <div class="program-card">
-          <div class="program-icon">🤝</div>
-          <h3>Penguatan Karakter</h3>
-          <p>
+    <div class="mission reveal">
+        <span class="mission-number">08</span>
+        <h4>Peduli Lingkungan</h4>
+        <p>
+            Membudayakan perilaku menjaga kebersihan, kesehatan,
+            kelestarian, dan keberlanjutan lingkungan.
+        </p>
+    </div>
+
+    <div class="mission reveal">
+        <span class="mission-number">09</span>
+        <h4>Menghargai Keberagaman</h4>
+        <p>
+            Mengembangkan budaya sekolah yang menghargai perbedaan
+            agama, budaya, suku, kondisi sosial, dan karakteristik individu.
+        </p>
+    </div>
+
+    <div class="mission reveal">
+        <span class="mission-number">10</span>
+        <h4>Prestasi Peserta Didik</h4>
+        <p>
+            Memberikan ruang bagi peserta didik untuk mengembangkan minat,
+            bakat, kreativitas, dan prestasi akademik maupun nonakademik.
+        </p>
+    </div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= PROGRAM ================= -->
+
+<section class="program" id="program">
+<div class="container">
+
+<div class="section-head reveal">
+    <span class="section-label">Program Sekolah</span>
+    <h2>Program Unggulan</h2>
+    <p>
+        Program pengembangan akademik, karakter, kreativitas,
+        teknologi, dan keterampilan peserta didik.
+    </p>
+</div>
+
+<div class="cards">
+
+    <div class="card reveal">
+        <div class="card-icon">📖</div>
+        <h3>Gerakan Literasi</h3>
+        <p>
+            Penguatan budaya membaca, menulis, dan kemampuan memahami
+            informasi.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <div class="card-icon">💻</div>
+        <h3>Koding & Kecerdasan Artifisial</h3>
+        <p>
+            Pengenalan teknologi, pemrograman, dan kecerdasan artifisial
+            untuk kesiapan masa depan.
+        </p>
+    </div>
+
+    <div class="card reveal">
+        <div class="card-icon">🤝</div>
+        <h3>Penguatan Karakter</h3>
+        <p>
             Membentuk peserta didik yang disiplin, bertanggung jawab,
-            santun, mandiri, dan memiliki kepedulian sosial.
-          </p>
-        </div>
-
-        <div class="program-card">
-          <div class="program-icon">🌱</div>
-          <h3>Sekolah Hijau</h3>
-          <p>
-            Membangun lingkungan sekolah yang bersih, hijau,
-            sehat, asri, dan peduli terhadap lingkungan.
-          </p>
-        </div>
-
-        <div class="program-card">
-          <div class="program-icon">🏆</div>
-          <h3>Pengembangan Prestasi</h3>
-          <p>
-            Mendukung peserta didik untuk mengembangkan potensi
-            akademik maupun nonakademik dan meraih prestasi.
-          </p>
-        </div>
-
-        <div class="program-card">
-          <div class="program-icon">🎨</div>
-          <h3>Ekstrakurikuler</h3>
-          <p>
-            Menyediakan ruang bagi peserta didik untuk mengembangkan
-            minat, bakat, kreativitas, kepemimpinan, dan kerja sama.
-          </p>
-        </div>
-
-      </div>
-
+            santun, mandiri, dan peduli sosial.
+        </p>
     </div>
 
-  </section>
-
-
-  <!-- =========================
-       KEGIATAN
-  ========================== -->
-
-  <section class="activities" id="kegiatan">
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <span class="label">
-          Aktivitas Sekolah
-        </span>
-
-        <h2>
-          Kegiatan SMA Negeri 1 Kolang
-        </h2>
-
+    <div class="card reveal">
+        <div class="card-icon">🌱</div>
+        <h3>Sekolah Hijau</h3>
         <p>
-          Dokumentasi beberapa kegiatan peserta didik
-          dan warga SMA Negeri 1 Kolang.
+            Membangun lingkungan sekolah yang bersih, hijau, sehat,
+            asri, dan peduli lingkungan.
         </p>
+    </div>
 
-      </div>
+    <div class="card reveal">
+        <div class="card-icon">🏆</div>
+        <h3>Pengembangan Prestasi</h3>
+        <p>
+            Mendukung peserta didik mengembangkan potensi akademik
+            maupun nonakademik.
+        </p>
+    </div>
 
+    <div class="card reveal">
+        <div class="card-icon">🎨</div>
+        <h3>Ekstrakurikuler</h3>
+        <p>
+            Ruang pengembangan minat, bakat, kreativitas, kepemimpinan,
+            dan kerja sama.
+        </p>
+    </div>
 
-      <div class="activity-grid">
+</div>
+</div>
+</section>
 
-        <div class="activity-card">
+<!-- ================= KEGIATAN ================= -->
 
-          <img
-            src="Kegiatas 5S.png"
-            alt="Kegiatan 5S SMA Negeri 1 Kolang"
-          >
+<section id="kegiatan">
+<div class="container">
 
-          <div class="activity-info">
+<div class="section-head reveal">
+    <span class="section-label">Aktivitas Sekolah</span>
+    <h2>Kegiatan SMA Negeri 1 Kolang</h2>
+    <p>
+        Dokumentasi aktivitas peserta didik dan warga sekolah.
+    </p>
+</div>
+
+<div class="activity-grid">
+
+    <div class="activity reveal">
+        <img src="Kegiatas 5S.png" alt="Kegiatan 5S">
+        <div class="activity-body">
             <h3>Kegiatan 5S</h3>
             <p>
-              Pembiasaan budaya Senyum, Salam, Sapa,
-              Sopan, dan Santun di lingkungan sekolah.
+                Pembiasaan Senyum, Salam, Sapa, Sopan, dan Santun.
             </p>
-          </div>
-
         </div>
+    </div>
 
-
-        <div class="activity-card">
-
-          <img
-            src="Kegiatas 5s2.png"
-            alt="Kegiatan 5S SMA Negeri 1 Kolang"
-          >
-
-          <div class="activity-info">
+    <div class="activity reveal">
+        <img src="Kegiatas 5s2.png" alt="Budaya 5S">
+        <div class="activity-body">
             <h3>Budaya 5S</h3>
             <p>
-              Membangun interaksi positif dan budaya
-              sekolah yang ramah serta berkarakter.
+                Membangun interaksi positif dan budaya sekolah yang ramah.
             </p>
-          </div>
-
         </div>
+    </div>
 
-
-        <div class="activity-card">
-
-          <img
-            src="Latihan baris 7.jpeg"
-            alt="Latihan baris berbaris"
-          >
-
-          <div class="activity-info">
+    <div class="activity reveal">
+        <img src="Latihan baris 7.jpeg" alt="Latihan baris berbaris">
+        <div class="activity-body">
             <h3>Latihan Baris-Berbaris</h3>
             <p>
-              Melatih kedisiplinan, kekompakan,
-              tanggung jawab, dan kepemimpinan peserta didik.
+                Melatih disiplin, kekompakan, tanggung jawab,
+                dan kepemimpinan.
             </p>
-          </div>
-
         </div>
+    </div>
 
-
-        <div class="activity-card">
-
-          <img
-            src="Padus 17 Agustus.jpeg"
-            alt="Paduan suara 17 Agustus"
-          >
-
-          <div class="activity-info">
+    <div class="activity reveal">
+        <img src="Padus 17 Agustus.jpeg" alt="Paduan suara">
+        <div class="activity-body">
             <h3>Paduan Suara</h3>
             <p>
-              Pengembangan bakat seni dan musikalitas
-              melalui kegiatan paduan suara.
+                Pengembangan bakat seni dan musikalitas peserta didik.
             </p>
-          </div>
-
         </div>
+    </div>
 
-
-        <div class="activity-card">
-
-          <img
-            src="Latihan baris berbaris.jpeg"
-            alt="Kegiatan latihan baris berbaris"
-          >
-
-          <div class="activity-info">
+    <div class="activity reveal">
+        <img src="Latihan baris berbaris.jpeg" alt="Kegiatan baris berbaris">
+        <div class="activity-body">
             <h3>Kedisiplinan Siswa</h3>
             <p>
-              Kegiatan pembinaan kedisiplinan dan
-              kerja sama peserta didik.
+                Pembinaan disiplin dan kerja sama peserta didik.
             </p>
-          </div>
-
         </div>
+    </div>
 
-
-        <div class="activity-card">
-
-          <img
-            src="Latihan baris 6.jpeg"
-            alt="Latihan baris berbaris"
-          >
-
-          <div class="activity-info">
+    <div class="activity reveal">
+        <img src="Latihan baris 6.jpeg" alt="Kegiatan peserta didik">
+        <div class="activity-body">
             <h3>Kegiatan Peserta Didik</h3>
             <p>
-              Aktivitas pembinaan karakter melalui
-              kegiatan bersama.
+                Aktivitas pembinaan karakter melalui kegiatan bersama.
             </p>
-          </div>
-
         </div>
-
-      </div>
-
     </div>
 
-  </section>
+</div>
+</div>
+</section>
 
+<!-- ================= FASILITAS ================= -->
 
-  <!-- =========================
-       FASILITAS
-  ========================== -->
+<section class="facility" id="fasilitas">
+<div class="container">
 
-  <section id="fasilitas">
+<div class="section-head reveal">
+    <span class="section-label">Sarana dan Prasarana</span>
+    <h2>Fasilitas Sekolah</h2>
+    <p>
+        Sarana pendukung proses pembelajaran dan pengembangan peserta didik.
+    </p>
+</div>
 
-    <div class="container">
+<div class="cards">
 
-      <div class="section-header">
-
-        <span class="label">
-          Sarana dan Prasarana
-        </span>
-
-        <h2>
-          Fasilitas Sekolah
-        </h2>
-
+    <div class="card reveal">
+        <div class="card-icon">🏫</div>
+        <h3>Ruang Kelas</h3>
         <p>
-          Fasilitas yang mendukung proses pembelajaran
-          dan kegiatan peserta didik.
-        </p>
-
-      </div>
-
-
-      <div class="facility-grid">
-
-        <div class="facility">
-          <div class="facility-icon">🏫</div>
-          <h3>Ruang Kelas</h3>
-          <p>
             Ruang pembelajaran untuk mendukung kegiatan belajar mengajar.
-          </p>
-        </div>
+        </p>
+    </div>
 
-        <div class="facility">
-          <div class="facility-icon">📚</div>
-          <h3>Perpustakaan</h3>
-          <p>
+    <div class="card reveal">
+        <div class="card-icon">📚</div>
+        <h3>Perpustakaan</h3>
+        <p>
             Sarana pengembangan budaya membaca dan sumber belajar.
-          </p>
-        </div>
+        </p>
+    </div>
 
-        <div class="facility">
-          <div class="facility-icon">🔬</div>
-          <h3>Laboratorium</h3>
-          <p>
+    <div class="card reveal">
+        <div class="card-icon">🔬</div>
+        <h3>Laboratorium</h3>
+        <p>
             Mendukung pembelajaran berbasis praktik dan eksperimen.
-          </p>
-        </div>
+        </p>
+    </div>
 
-        <div class="facility">
-          <div class="facility-icon">⚽</div>
-          <h3>Lapangan</h3>
-          <p>
+    <div class="card reveal">
+        <div class="card-icon">⚽</div>
+        <h3>Lapangan</h3>
+        <p>
             Digunakan untuk olahraga dan berbagai kegiatan sekolah.
-          </p>
-        </div>
-
-      </div>
-
+        </p>
     </div>
 
-  </section>
+    <div class="card reveal">
+        <div class="card-icon">💻</div>
+        <h3>Teknologi Pembelajaran</h3>
+        <p>
+            Mendukung pembelajaran berbasis teknologi dan digital.
+        </p>
+    </div>
 
+    <div class="card reveal">
+        <div class="card-icon">🌳</div>
+        <h3>Lingkungan Sekolah</h3>
+        <p>
+            Lingkungan yang terus dikembangkan agar bersih, hijau,
+            sehat, dan nyaman.
+        </p>
+    </div>
 
-  <!-- =========================
-       GALERI
-  ========================== -->
+</div>
+</div>
+</section>
 
-  <section class="gallery" id="galeri">
+<!-- ================= PRESTASI ================= -->
 
-    <div class="container">
+<section id="prestasi">
+<div class="container">
 
-      <div class="section-header">
+<div class="section-head reveal">
+    <span class="section-label">Prestasi</span>
+    <h2>Prestasi Peserta Didik</h2>
+    <p>
+        Ruang khusus untuk menampilkan prestasi akademik dan nonakademik
+        SMA Negeri 1 Kolang.
+    </p>
+</div>
 
-        <span class="label">
-          Dokumentasi
-        </span>
+<div class="achievement-grid">
 
-        <h2>
-          Galeri SMA Negeri 1 Kolang
-        </h2>
+    <div class="achievement reveal">
+        <div class="achievement-icon">🏆</div>
+        <h3>Prestasi Akademik</h3>
+        <p>
+            Data prestasi akademik sekolah dapat ditambahkan pada bagian ini.
+        </p>
+    </div>
+
+    <div class="achievement reveal">
+        <div class="achievement-icon">🥇</div>
+        <h3>Prestasi Nonakademik</h3>
+        <p>
+            Data prestasi olahraga, seni, organisasi, dan bidang lainnya.
+        </p>
+    </div>
+
+    <div class="achievement reveal">
+        <div class="achievement-icon">🌟</div>
+        <h3>Peserta Didik Berprestasi</h3>
+        <p>
+            Profil peserta didik berprestasi dapat ditampilkan di sini.
+        </p>
+    </div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= GALERI ================= -->
+
+<section class="gallery" id="galeri">
+<div class="container">
+
+<div class="section-head reveal">
+    <span class="section-label">Dokumentasi</span>
+    <h2>Galeri SMA Negeri 1 Kolang</h2>
+    <p>
+        Klik foto untuk melihat ukuran lebih besar.
+    </p>
+</div>
+
+<div class="gallery-grid">
+
+    <div class="gallery-item reveal" onclick="openModal('foto-sekolah.jpg')">
+        <img src="foto-sekolah.jpg" alt="SMA Negeri 1 Kolang">
+        <div class="gallery-caption">SMA Negeri 1 Kolang</div>
+    </div>
+
+    <div class="gallery-item reveal" onclick="openModal('Kegiatas 5S.png')">
+        <img src="Kegiatas 5S.png" alt="Kegiatan 5S">
+        <div class="gallery-caption">Kegiatan 5S</div>
+    </div>
+
+    <div class="gallery-item reveal" onclick="openModal('Kegiatas 5s2.png')">
+        <img src="Kegiatas 5s2.png" alt="Budaya 5S">
+        <div class="gallery-caption">Budaya 5S</div>
+    </div>
+
+    <div class="gallery-item reveal" onclick="openModal('Latihan baris 7.jpeg')">
+        <img src="Latihan baris 7.jpeg" alt="Latihan Baris">
+        <div class="gallery-caption">Latihan Baris-Berbaris</div>
+    </div>
+
+    <div class="gallery-item reveal" onclick="openModal('Padus 17 Agustus.jpeg')">
+        <img src="Padus 17 Agustus.jpeg" alt="Paduan Suara">
+        <div class="gallery-caption">Paduan Suara</div>
+    </div>
+
+    <div class="gallery-item reveal" onclick="openModal('Latihan baris berbaris.jpeg')">
+        <img src="Latihan baris berbaris.jpeg" alt="Kegiatan Baris">
+        <div class="gallery-caption">Kegiatan Baris-Berbaris</div>
+    </div>
+
+    <div class="gallery-item reveal" onclick="openModal('Latihan baris 6.jpeg')">
+        <img src="Latihan baris 6.jpeg" alt="Pembinaan">
+        <div class="gallery-caption">Pembinaan Kedisiplinan</div>
+    </div>
+
+    <div class="gallery-item reveal" onclick="openModal('Latihan baris 4.jpeg')">
+        <img src="Latihan baris 4.jpeg" alt="Aktivitas Siswa">
+        <div class="gallery-caption">Aktivitas Siswa</div>
+    </div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= BERITA ================= -->
+
+<section class="news" id="berita">
+<div class="container">
+
+<div class="section-head reveal">
+    <span class="section-label">Informasi</span>
+    <h2>Berita & Pengumuman</h2>
+    <p>
+        Ruang informasi untuk berita dan pengumuman resmi sekolah.
+    </p>
+</div>
+
+<div class="cards">
+
+    <div class="news-card reveal">
+        <div class="news-date">INFORMASI SEKOLAH</div>
+        <h3>Pengumuman Sekolah</h3>
+        <p>
+            Informasi dan pengumuman terbaru SMA Negeri 1 Kolang
+            dapat ditampilkan pada bagian ini.
+        </p>
+    </div>
+
+    <div class="news-card reveal">
+        <div class="news-date">KEGIATAN</div>
+        <h3>Kegiatan Peserta Didik</h3>
+        <p>
+            Berita kegiatan sekolah, pembinaan peserta didik,
+            dan kegiatan ekstrakurikuler.
+        </p>
+    </div>
+
+    <div class="news-card reveal">
+        <div class="news-date">PRESTASI</div>
+        <h3>Prestasi Sekolah</h3>
+        <p>
+            Dokumentasi prestasi akademik maupun nonakademik
+            peserta didik dan sekolah.
+        </p>
+    </div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= PPDB ================= -->
+
+<section class="ppdb" id="ppdb">
+<div class="container">
+
+<div class="ppdb-box reveal">
+
+    <div>
+        <h2>PPDB / Penerimaan Peserta Didik Baru</h2>
 
         <p>
-          Dokumentasi kegiatan dan aktivitas warga sekolah.
-          Klik foto untuk memperbesar.
+            Informasi penerimaan peserta didik baru dapat ditampilkan
+            di halaman ini.
         </p>
+    </div>
 
-      </div>
+    <a href="#kontak" class="btn btn-primary">
+        Informasi PPDB →
+    </a>
 
+</div>
+</div>
+</section>
 
-      <div class="gallery-grid">
+<!-- ================= DOWNLOAD ================= -->
 
+<section id="download">
+<div class="container">
 
-        <div class="gallery-item"
-             onclick="openModal('foto-sekolah.jpg')">
+<div class="section-head reveal">
+    <span class="section-label">Dokumen</span>
+    <h2>Download Dokumen</h2>
+    <p>
+        Tempat penyimpanan dokumen dan informasi yang dapat diakses
+        warga sekolah.
+    </p>
+</div>
 
-          <img
-            src="foto-sekolah.jpg"
-            alt="SMA Negeri 1 Kolang"
-          >
+<div class="download-grid">
 
-          <div class="gallery-caption">
-            Gemar Membaca
-          </div>
+    <div class="download-item reveal">
+        <div class="download-icon">📄</div>
+        <div>
+            <strong>Profil Sekolah</strong>
+            <span>Dokumen profil sekolah</span>
+        </div>
+    </div>
 
+    <div class="download-item reveal">
+        <div class="download-icon">📋</div>
+        <div>
+            <strong>Program Sekolah</strong>
+            <span>Program dan kegiatan sekolah</span>
+        </div>
+    </div>
+
+    <div class="download-item reveal">
+        <div class="download-icon">📚</div>
+        <div>
+            <strong>Dokumen Kurikulum</strong>
+            <span>Dokumen kurikulum sekolah</span>
+        </div>
+    </div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= KONTAK ================= -->
+
+<section class="contact" id="kontak">
+<div class="container">
+
+<div class="section-head reveal">
+    <span class="section-label">Hubungi Kami</span>
+    <h2>Kontak SMA Negeri 1 Kolang</h2>
+    <p>
+        Informasi alamat dan kontak sekolah.
+    </p>
+</div>
+
+<div class="contact-grid">
+
+    <div class="contact-card reveal">
+
+        <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+                <strong>Alamat</strong>
+                <span>
+                    Jl. Sibolga Barus Km. 21, Desa Unte Mungkur I,
+                    Kecamatan Kolang, Kabupaten Tapanuli Tengah,
+                    Provinsi Sumatera Utara, Kode Pos 22562
+                </span>
+            </div>
         </div>
 
-
-        <div class="gallery-item"
-             onclick="openModal('Kegiatas 5S.png')">
-
-          <img
-            src="Kegiatas 5S.png"
-            alt="Kegiatan 5S"
-          >
-
-          <div class="gallery-caption">
-            Kegiatan 5S
-          </div>
-
+        <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+                <strong>Email</strong>
+                <span>sman1kolang123@gmail.com</span>
+            </div>
         </div>
 
-
-        <div class="gallery-item"
-             onclick="openModal('Kegiatas 5s2.png')">
-
-          <img
-            src="Kegiatas 5s2.png"
-            alt="Kegiatan 5S"
-          >
-
-          <div class="gallery-caption">
-            Budaya 5S
-          </div>
-
+        <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+                <strong>Telepon</strong>
+                <span>(0631)</span>
+            </div>
         </div>
 
-
-        <div class="gallery-item"
-             onclick="openModal('Latihan baris 7.jpeg')">
-
-          <img
-            src="Latihan baris 7.jpeg"
-            alt="Latihan baris berbaris"
-          >
-
-          <div class="gallery-caption">
-            Latihan Baris-Berbaris
-          </div>
-
+        <div class="contact-item">
+            <div class="contact-icon">🏫</div>
+            <div>
+                <strong>NPSN</strong>
+                <span>10220520</span>
+            </div>
         </div>
-
-
-        <div class="gallery-item"
-             onclick="openModal('Padus 17 Agustus.jpeg')">
-
-          <img
-            src="Padus 17 Agustus.jpeg"
-            alt="Paduan suara 17 Agustus"
-          >
-
-          <div class="gallery-caption">
-            Paduan Suara SMA Negeri 1 Kolang
-          </div>
-
-        </div>
-
-
-        <div class="gallery-item"
-             onclick="openModal('Latihan baris berbaris.jpeg')">
-
-          <img
-            src="Latihan baris berbaris.jpeg"
-            alt="Latihan baris berbaris"
-          >
-
-          <div class="gallery-caption">
-            Kegiatan Baris-Berbaris
-          </div>
-
-        </div>
-
-
-        <div class="gallery-item"
-             onclick="openModal('Latihan baris 6.jpeg')">
-
-          <img
-            src="Latihan baris 6.jpeg"
-            alt="Latihan baris"
-          >
-
-          <div class="gallery-caption">
-            Pembinaan Kedisiplinan
-          </div>
-
-        </div>
-
-
-        <div class="gallery-item"
-             onclick="openModal('Latihan baris 4.jpeg')">
-
-          <img
-            src="Latihan baris 4.jpeg"
-            alt="Latihan baris"
-          >
-
-          <div class="gallery-caption">
-            Aktivitas Siswa
-          </div>
-
-        </div>
-
-
-        <div class="gallery-item"
-             onclick="openModal('Latihan baris 2.jpeg')">
-
-          <img
-            src="Latihan baris 2.jpeg"
-            alt="Latihan baris"
-          >
-
-          <div class="gallery-caption">
-            Kegiatan Peserta Didik
-          </div>
-
-        </div>
-
-      </div>
 
     </div>
 
-  </section>
+    <div class="map-box reveal">
 
+        <div>
+            <div style="font-size:50px;">📍</div>
 
-  <!-- =========================
-       KONTAK
-  ========================== -->
+            <h3>Lokasi SMA Negeri 1 Kolang</h3>
 
-  <section class="contact" id="kontak">
+            <p style="margin:10px 0 18px;color:#66736c;">
+                Desa Unte Mungkur I, Kecamatan Kolang,
+                Kabupaten Tapanuli Tengah.
+            </p>
 
-    <div class="container">
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=SMA+Negeri+1+Kolang"
+                target="_blank">
+                Buka Lokasi di Google Maps →
+            </a>
+        </div>
 
-      <div class="section-header">
+    </div>
 
-        <span class="label">
-          Hubungi Kami
-        </span>
+</div>
+</div>
+</section>
 
-        <h2>
-          Kontak SMA Negeri 1 Kolang
-        </h2>
+<!-- ================= FOOTER ================= -->
+
+<footer>
+<div class="container">
+
+<div class="footer-grid">
+
+    <div>
+
+        <div class="footer-brand">
+            <img src="logo-sman1-kolang.png" alt="Logo">
+            <div>
+                <strong>SMA NEGERI 1 KOLANG</strong>
+            </div>
+        </div>
 
         <p>
-          
+            Website informasi SMA Negeri 1 Kolang sebagai media informasi,
+            komunikasi, dan publikasi sekolah.
         </p>
-
-      </div>
-
-
-      <div class="contact-grid">
-
-        <div class="contact-card">
-
-          <div class="icon">📍</div>
-
-          <h3>Alamat</h3>
-
-          <p>
-            Jl. Sibolga Barus Km. 21 Desa Unte Mungkur I Kecamatan Kolang Kabupaten Tapanuli Tengah Provinsi Sumatera Utara Kode Pos 22562<br>
-          </p>
-
-        </div>
-
-
-        <div class="contact-card">
-
-          <div class="icon">✉️</div>
-
-          <h3>Email</h3>
-
-          <p>
-            sman1kolang123@gmail.com
-          </p>
-
-        </div>
-
-
-        <div class="contact-card">
-
-          <div class="icon">📞</div>
-
-          <h3>Telepon</h3>
-
-          <p>
-            (0631)
-          </p>
-
-        </div>
-
-      </div>
 
     </div>
 
-  </section>
+    <div>
 
+        <h3>Menu</h3>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+        <div class="footer-links">
+            <a href="#profil">Profil</a>
+            <a href="#visi">Visi & Misi</a>
+            <a href="#program">Program</a>
+            <a href="#kegiatan">Kegiatan</a>
+            <a href="#galeri">Galeri</a>
+        </div>
 
-  <footer>
+    </div>
 
-    <p>
-      © <span id="year"></span>
-      SMA Negeri 1 Kolang.
-      Semua Hak Dilindungi.
-    </p>
+    <div>
 
-    <p>
-      Website Informasi SMA Negeri 1 Kolang
-    </p>
+        <h3>Informasi</h3>
 
-  </footer>
+        <div class="footer-links">
+            <a href="#prestasi">Prestasi</a>
+            <a href="#berita">Berita</a>
+            <a href="#ppdb">PPDB</a>
+            <a href="#download">Download</a>
+            <a href="#kontak">Kontak</a>
+        </div>
 
+    </div>
 
-  <!-- =========================
-       MODAL FOTO
-  ========================== -->
+</div>
 
-  <div class="modal" id="imageModal">
+<div class="copyright">
+    © <span id="year"></span> SMA Negeri 1 Kolang. Semua Hak Dilindungi.
+</div>
 
-    <span class="modal-close" onclick="closeModal()">
-      &times;
-    </span>
+</div>
+</footer>
 
+<!-- ================= BACK TO TOP ================= -->
+
+<button id="topBtn" title="Kembali ke atas">↑</button>
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="imageModal">
+    <span class="modal-close" onclick="closeModal()">×</span>
     <img id="modalImage" src="" alt="Foto Galeri">
+</div>
 
-  </div>
+<!-- ================= JAVASCRIPT ================= -->
 
+<script>
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+/* MENU MOBILE */
 
-  <script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
 
-    // Tahun otomatis
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+menuBtn.addEventListener("click", function(){
+    navLinks.classList.toggle("active");
+});
 
-
-    // Menu HP
-    const menuToggle =
-      document.getElementById("menuToggle");
-
-    const navMenu =
-      document.getElementById("navMenu");
-
-    menuToggle.addEventListener("click", function () {
-
-      navMenu.classList.toggle("active");
-
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        navLinks.classList.remove("active");
     });
+});
 
 
-    // Tutup menu setelah klik
-    document.querySelectorAll("nav a").forEach(function(link) {
+/* TAHUN OTOMATIS */
 
-      link.addEventListener("click", function() {
-
-        navMenu.classList.remove("active");
-
-      });
-
-    });
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 
-    // Modal galeri
-    const modal =
-      document.getElementById("imageModal");
+/* BACK TO TOP */
 
-    const modalImage =
-      document.getElementById("modalImage");
+const topBtn = document.getElementById("topBtn");
 
+window.addEventListener("scroll",function(){
 
-    function openModal(image) {
-
-      modalImage.src = image;
-
-      modal.style.display = "flex";
-
-      document.body.style.overflow = "hidden";
-
+    if(window.scrollY > 500){
+        topBtn.style.display = "block";
+    }else{
+        topBtn.style.display = "none";
     }
 
+});
 
-    function closeModal() {
+topBtn.addEventListener("click",function(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+});
 
-      modal.style.display = "none";
 
-      modalImage.src = "";
+/* GALERI MODAL */
 
-      document.body.style.overflow = "auto";
+function openModal(image){
 
+    document.getElementById("modalImage").src = image;
+
+    document.getElementById("imageModal").style.display = "flex";
+
+}
+
+function closeModal(){
+
+    document.getElementById("imageModal").style.display = "none";
+
+}
+
+document.getElementById("imageModal").addEventListener("click",function(e){
+
+    if(e.target === this){
+        closeModal();
     }
 
-
-    // Klik area luar gambar untuk menutup
-    modal.addEventListener("click", function(event) {
-
-      if (event.target === modal) {
-
-        closeModal();
-
-      }
-
-    });
+});
 
 
-    // Tombol ESC
-    document.addEventListener("keydown", function(event) {
+/* ANIMASI SCROLL */
 
-      if (event.key === "Escape") {
+const reveals = document.querySelectorAll(".reveal");
 
-        closeModal();
+const observer = new IntersectionObserver((entries)=>{
 
-      }
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
 
     });
 
+},{
+    threshold:.12
+});
 
-    // Tombol kembali ke atas
-    const backTop =
-      document.createElement("button");
+reveals.forEach(el=>{
+    observer.observe(el);
+});
 
-    backTop.id = "backTop";
-
-    backTop.innerHTML = "↑";
-
-    backTop.title = "Kembali ke atas";
-
-    document.body.appendChild(backTop);
-
-
-    window.addEventListener("scroll", function() {
-
-      if (window.scrollY > 500) {
-
-        backTop.style.display = "block";
-
-      } else {
-
-        backTop.style.display = "none";
-
-      }
-
-    });
-
-
-    backTop.addEventListener("click", function() {
-
-      window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-      });
-
-    });
-
-  </script>
+</script>
 
 </body>
 </html>
